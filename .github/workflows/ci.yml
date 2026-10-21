@@ -1,4 +1,4 @@
-
+```yaml
 name: MyFirstDockerApp CI-CD
 
 on:
@@ -21,8 +21,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
-          pip install pytest
+          python -m pip install -r requirements.txt
+          python -m pip install pytest
 
       - name: Run tests
         run: python -m pytest
@@ -38,7 +38,7 @@ jobs:
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: ${{ aqibchou }}
+          username: ${{ "aqibchou" }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build and push image
@@ -47,4 +47,4 @@ jobs:
           context: .
           push: true
           tags: aqibchou/ahmedfirstdockerapp:latest
-+
+```
